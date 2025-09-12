@@ -4,12 +4,16 @@ This script assumes that openmpi and ior have already been installed on the syst
 ```
 IOR can be downloaded from:
 https://github.com/hpc/ior.git
+
 To compile:
 export PATH=$PATH:{path_to_mpi_bin_dir}
 export LD_LIBRARY_PATH:{path_to_mpi_lib_dir}
+
 git clone https://github.com/hpc/ior.git
+
 cd ior
  ./bootstrap ; ./configure ; sudo make ; sudo make install
+
 #IOR will now be installed under
 ls /usr/local/bin/
 ior  md-workbench  mdtest

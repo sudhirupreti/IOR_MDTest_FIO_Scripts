@@ -1,6 +1,6 @@
-# IOR_MDTest_FIO_Scripts
+IOR_MDTest_FIO_Scripts
 IOR MDTest FIO Scripts to troubleshoot storage/filesystem issues.
-# Running IOR benchmark. This script assumes that openmpi and ior have already been installed on the system or all the hosts.
+Running IOR benchmark. This script assumes that openmpi and ior have already been installed on the system or all the hosts.
 ```
 #IOR takes network interface, machinefile, process per node(ppn), work directory, blocksize(make sure blocksize is > 1.5 x client memory) as arguments)
 

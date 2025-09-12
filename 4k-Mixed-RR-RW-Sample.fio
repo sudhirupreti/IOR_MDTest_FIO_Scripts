@@ -1,0 +1,17 @@
+[global]
+name=fio-rand-RW 
+directory=/mnt/lustrefs/sudhir/fio/data/ #Replace with your working directory
+rw=randrw #Mixed random read/write workload
+rwmixread=60  #Read ratio
+rwmixwrite=40 #Write Ratio
+bs=4k #Blocksize
+direct=1 #DirectIO
+numjobs=112 #Numjobs. Find the value that works the best for your system
+time_based
+group_reporting
+runtime=300 #Runs for 300s or 5 mins
+
+[file1]
+size=1G #File size per numjobs
+ioengine=libaio #libaio. Other include psync, etc
+iodepth=256 #Find the value that works the best for your system

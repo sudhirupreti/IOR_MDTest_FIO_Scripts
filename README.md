@@ -34,3 +34,11 @@ options:
                         IOR block size (e.g. 1m)
   --files_per_proc FILES_PER_PROC, -n FILES_PER_PROC
                         Files per proc (for MDTest)
+
+
+
+Running FIO benchmark
+# Install FIO benchmark first
+sudo apt install fio
+#Make sure passwordless login is active among the hosts/client nodes
+./run_fio.sh 1node 4k-Mixed-RR-RW-Sample.fio

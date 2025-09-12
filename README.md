@@ -2,6 +2,18 @@ IOR MDTest FIO Scripts to troubleshoot storage/filesystem issues.
 
 This script assumes that openmpi and ior have already been installed on the system or all the hosts.
 ```
+IOR can be downloaded from:
+https://github.com/hpc/ior.git
+To compile:
+export PATH=$PATH:{path_to_mpi_bin_dir}
+export LD_LIBRARY_PATH:{path_to_mpi_lib_dir}
+git clone https://github.com/hpc/ior.git
+cd ior
+ ./bootstrap ; ./configure ; sudo make ; sudo make install
+#IOR will now be installed under
+ls /usr/local/bin/
+ior  md-workbench  mdtest
+
 #Running IOR
 #IOR takes network interface, machinefile, process per node(ppn), work directory, blocksize(make sure blocksize is > 1.5 x client memory) as arguments)
 

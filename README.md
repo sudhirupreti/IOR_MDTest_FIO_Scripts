@@ -2,16 +2,29 @@ IOR MDTest FIO Scripts to troubleshoot storage/filesystem issues.
 
 This script assumes that openmpi and ior have already been installed on the system or all the hosts.
 ```
+#If openmpi is not installed, then:
+sudo apt-get update
+sudo apt-get install openmpi-bin libopenmpi-dev
+
+#Verify using:
+mpirun -V
+mpirun (Open MPI) 4.1.6
+
 IOR can be downloaded from:
 https://github.com/hpc/ior.git
 
-To compile:
+#To compile (if mpirun is installed on a specific directory):
 export PATH=$PATH:{path_to_mpi_bin_dir}
 export LD_LIBRARY_PATH:{path_to_mpi_lib_dir}
 
 git clone https://github.com/hpc/ior.git
 
 cd ior
+#Install dependencies
+sudo apt-get update
+sudo apt-get install autoconf automake libtool m4 make gcc g++ pkg-config
+
+#Compile
  ./bootstrap ; ./configure ; sudo make ; sudo make install
 
 #IOR will now be installed under

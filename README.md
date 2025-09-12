@@ -56,5 +56,6 @@ options:
 Running FIO benchmark
 # Install FIO benchmark first
 sudo apt install fio
+
 #Make sure passwordless login is active among the hosts/client nodes
 ./run_fio.sh 1node 4k-Mixed-RR-RW-Sample.fio

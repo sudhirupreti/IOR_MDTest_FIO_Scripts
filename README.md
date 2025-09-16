@@ -32,14 +32,14 @@ ls /usr/local/bin/
 ior  md-workbench  mdtest
 
 #Running IOR
-#IOR takes network interface, machinefile, process per node(ppn), work directory, blocksize(make sure blocksize is > 1.5 x client memory) as arguments)
+#IOR takes network interface, machinefile, number of hosts, process per node(ppn), work directory, and memory on the client (make sure blocksize is > 1.5 x client memory) as arguments)
 
-python3 run_ior_mdtest.py --benchmark ior --machinefile 1node --ppn 2 --workdir /mnt/localdisk/ior --blocksize 1m --output ior_results.csv
+python3 uy.py --interface ens300np0 --benchmark ior --machinefile 1node --num-hosts 1 --ppn 2,4 --memory 1G --workdir /mnt/localdisk/ior --output ior_scaling.csv
 
 #Running MDTest
-#MDtest takes network interface, machinefile, ppn, files per proc(Make sure that total combined files > 1M) as arguments.
+#MDtest takes network interface, machinefile,number of hosts, ppn, number of files (Make sure that total combined files > 1M) as arguments.
 
-python3 test.py --benchmark mdtest --interface ens300np0 --machinefile 1node --ppn 2 --workdir /mnt/localdisk/mdtest --files_per_proc 1000 --output mdtest_results.csv
+python3 uy.py --interface ens300np0  --benchmark mdtest --machinefile 1node --num-hosts 1 --ppn 2,4 --num-files 100 --workdir /mnt/localdisk/mdtest/ --memory 1G --output mdtest_results.csv
 
 #For more info:
 python3 run_ior_mdtest.py -h

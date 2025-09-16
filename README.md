@@ -70,5 +70,6 @@ Running FIO benchmark
 # Install FIO benchmark first
 sudo apt install fio
 
-#Make sure passwordless login is active among the hosts/client nodes
-./run_fio.sh 1node 4k-Mixed-RR-RW-Sample.fio
+#Make sure passwordless login is active among the hosts/client nodes. Run fio with the following command line. Add --output argument if you want results in csv format as well. The fio job
+file consists of 4k and 32k bs random writes, random reads , and mixed random writes/reads sections.
+./run_fio-v2.sh 1node 4k-and-32k-random.fio --output csv

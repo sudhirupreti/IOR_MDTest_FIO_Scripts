@@ -1,13 +1,13 @@
 [global]
-directory=/mnt/localdisk/fio/
-direct=1
-numjobs=112
-time_based
-group_reporting
-runtime=300
-size=1G
-ioengine=libaio
-iodepth=128
+directory=/mnt/localdisk/fio/ #Edit this to point to your directory. For raw block devices use filename=.... 
+direct=1 #Use direct I/O for random operations.
+numjobs=112 #Number of jobs launched. Play around with this paramter to find the best value that works for you. Use 1/2 of or total CPUs present in the system as starting point.
+time_based #Make the run time based.
+group_reporting 
+runtime=300 #Runtime of 300s
+size=1G #File size of each job
+ioengine=libaio #Use libaio
+iodepth=128 #IODepth. Play around with this paramter to find the best value that works for you.
 
 # 1. 4k Random Write
 [randwrite_4k]

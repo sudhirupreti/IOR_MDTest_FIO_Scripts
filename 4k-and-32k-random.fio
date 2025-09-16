@@ -1,0 +1,49 @@
+[global]
+directory=/mnt/localdisk/fio/
+direct=1
+numjobs=112
+time_based
+group_reporting
+runtime=300
+size=1G
+ioengine=libaio
+iodepth=128
+
+# 1. 4k Random Write
+[randwrite_4k]
+rw=randwrite
+bs=4k
+
+# 2. 4k Random Read
+[randread_4k]
+stonewall
+rw=randread
+bs=4k
+
+# 3. 4k Mixed Random Read/Write (60% Read / 40% Write)
+[randrw_4k_60r_40w]
+stonewall
+rw=randrw
+bs=4k
+rwmixread=60
+rwmixwrite=40
+
+# 4. 32k Random Read
+[randread_32k]
+stonewall
+rw=randread
+bs=32k
+
+# 5. 32k Random Write
+[randwrite_32k]
+stonewall
+rw=randwrite
+bs=32k
+
+# 6. 32k Mixed Random Read/Write (60% Read / 40% Write)
+[randrw_32k_60r_40w]
+stonewall
+rw=randrw
+bs=32k
+rwmixread=60
+rwmixwrite=40

@@ -34,7 +34,7 @@ ior  md-workbench  mdtest
 #Running IOR
 #IOR takes network interface, machinefile, number of hosts, process per node(ppn), work directory, and memory on the client (make sure blocksize is > 1.5 x client memory) as arguments)
 
-python3 run_ior_mdtest-v2.py --interface ens300np0 --benchmark ior --machinefile 1node --num-hosts 1 --ppn 2,4 --memory 32G --workdir /mnt/localdisk/ior --output ior_scaling.csv
+python3 run_ior_mdtest-v3.py --interface ens300np0 --transfer_size 1m,2m --benchmark ior --machinefile 1node --num-hosts 1 --memory 1G --ppn 2,4,6,8,10 --workdir /mnt/localdisk/ior --output ior_results.csv
 
 #Running MDTest
 #MDtest takes network interface, machinefile,number of hosts, ppn, number of files (Make sure that total combined files > 1M) as arguments.
@@ -42,8 +42,9 @@ python3 run_ior_mdtest-v2.py --interface ens300np0 --benchmark ior --machinefile
 python3 run_ior_mdtest-v2.py --interface ens300np0  --benchmark mdtest --machinefile 1node --num-hosts 1 --ppn 2,4 --num-files 100 --workdir /mnt/localdisk/mdtest/ --memory 1G --output mdtest_results.csv
 
 #For more info:
-usage: run_ior_mdtest-v2.py [-h] --benchmark {ior,mdtest} --machinefile MACHINEFILE --num-hosts NUM_HOSTS --ppn PPN --workdir WORKDIR [--output OUTPUT] [--interface INTERFACE] --memory MEMORY
-                            [--num-files NUM_FILES]
+python3 run_ior_mdtest-v3.py -h
+usage: run_ior_mdtest-v3.py [-h] --benchmark {ior,mdtest} --machinefile MACHINEFILE --num-hosts NUM_HOSTS --ppn PPN --workdir WORKDIR [--output OUTPUT] [--interface INTERFACE] --memory MEMORY
+                            [--num-files NUM_FILES] --transfer_size TRANSFER_SIZE
 
 IOR/MDTest with node, process, and file scaling, and per-run logs.
 
@@ -64,7 +65,8 @@ options:
   --memory MEMORY       Total memory per node (e.g. 128G or 131072M, REQUIRED for IOR)
   --num-files NUM_FILES
                         Total number of files (for MDTest)
-
+  --transfer_size TRANSFER_SIZE
+                        Comma separated, Transfer or I/O size (e.g. 4k,128k,1M. REQUIRED for IOR)
 
 
 Running FIO benchmark

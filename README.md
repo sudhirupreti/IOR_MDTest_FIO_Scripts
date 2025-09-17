@@ -42,27 +42,28 @@ python3 run_ior_mdtest-v2.py --interface ens300np0 --benchmark ior --machinefile
 python3 run_ior_mdtest-v2.py --interface ens300np0  --benchmark mdtest --machinefile 1node --num-hosts 1 --ppn 2,4 --num-files 100 --workdir /mnt/localdisk/mdtest/ --memory 1G --output mdtest_results.csv
 
 #For more info:
-python3 run_ior_mdtest.py -h
-usage: run_ior_mdtest.py [-h] --benchmark {ior,mdtest} --machinefile MACHINEFILE --ppn PPN --workdir WORKDIR [--output OUTPUT] [--interface INTERFACE] [--blocksize BLOCKSIZE] [--files_per_proc FILES_PER_PROC]
+usage: run_ior_mdtest-v2.py [-h] --benchmark {ior,mdtest} --machinefile MACHINEFILE --num-hosts NUM_HOSTS --ppn PPN --workdir WORKDIR [--output OUTPUT] [--interface INTERFACE] --memory MEMORY
+                            [--num-files NUM_FILES]
 
-Run IOR or MDTest with custom options.
+IOR/MDTest with node, process, and file scaling, and per-run logs.
 
 options:
   -h, --help            show this help message and exit
   --benchmark {ior,mdtest}, -bm {ior,mdtest}
                         Which benchmark to run: ior or mdtest
   --machinefile MACHINEFILE
-                        MPI machinefile
-  --ppn PPN             Processes per node
+                        MPI machinefile (list of available nodes)
+  --num-hosts NUM_HOSTS
+                        Comma-separated #nodes for sweep, e.g. 1,2,4,8
+  --ppn PPN             Comma-separated list, e.g. 2,4,8 for processes-per-node sweep
   --workdir WORKDIR, -d WORKDIR
                         Working/output directory
-  --output OUTPUT       CSV file to save results (optional)
+  --output OUTPUT       CSV file to save aggregate results (optional)
   --interface INTERFACE
                         Network interface for MPI traffic (default: eth0)
-  --memory Memory,      Memory of the client Node. Script takes this as a parameter and uses it to make blocksize > 1.5 times the client memory
-                        
-  --files_per_proc FILES_PER_PROC, -n FILES_PER_PROC
-                        Files per proc (for MDTest)
+  --memory MEMORY       Total memory per node (e.g. 128G or 131072M, REQUIRED for IOR)
+  --num-files NUM_FILES
+                        Total number of files (for MDTest)
 
 
 

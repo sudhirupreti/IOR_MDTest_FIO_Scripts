@@ -39,7 +39,7 @@ python3 run_ior_mdtest.py --interface ens300np0 --transfer_size 1m,2m --benchmar
 #Running MDTest
 #MDtest takes network interface, machinefile,number of hosts, ppn, number of files (Make sure that total combined files > 1M) as arguments.
 
-python3 run_ior_mdtest-v2.py --interface ens300np0  --benchmark mdtest --machinefile 1node --num-hosts 1 --ppn 2,4 --num-files 100 --workdir /mnt/localdisk/mdtest/ --memory 1G --output mdtest_results.csv
+python3 run_ior_mdtest.py --interface ens300np0  --benchmark mdtest --machinefile 1node --num-hosts 1 --ppn 2,4 --num-files 100 --workdir /mnt/localdisk/mdtest/ --memory 1G --output mdtest_results.csv
 
 #For more info:
 python3 run_ior_mdtest.py -h

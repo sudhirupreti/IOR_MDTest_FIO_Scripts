@@ -59,8 +59,8 @@ options:
   --output OUTPUT       CSV file to save results (optional)
   --interface INTERFACE
                         Network interface for MPI traffic (default: eth0)
-  --blocksize BLOCKSIZE, -b BLOCKSIZE
-                        IOR block size (e.g. 1m)
+  --memory Memory,      Memory of the client Node. Script takes this as a parameter and uses it to make blocksize > 1.5 times the client memory
+                        
   --files_per_proc FILES_PER_PROC, -n FILES_PER_PROC
                         Files per proc (for MDTest)
 
